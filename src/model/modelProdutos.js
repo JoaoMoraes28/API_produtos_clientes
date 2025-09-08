@@ -61,10 +61,20 @@ function alterarProduto(id, newDados) {
     
 }
 
+function deletarProduto(id) {
+    for (let i = 0; i < produtos.length; i++) {
+        if (produtos[i].id == id) {
+            produtos.splice(i, 1)
+        }
+        
+    }
+}
+
 module.exports = {
     getProdutos,
     getProdutoId,
     getProdutoNome,
     setProduto,
-    alterarProduto
+    alterarProduto,
+    deletarProduto
 }

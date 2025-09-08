@@ -1,17 +1,19 @@
 'use strict'
 
 const express = require('express')
-const router = express.Router()
+const routerProdutos = express.Router()
 const controler = require('../controller/produtoControler')
 
-router.get('/', controler.getAllProdutos)
+routerProdutos.get('/', controler.getAllProdutos)
 
-router.get('/:id', controler.getProdutoId)
+routerProdutos.get('/:id', controler.getProdutoId)
 
-router.get('/nome/:nome', controler.getProdutoNome)
+routerProdutos.get('/nome/:nome', controler.getProdutoNome)
 
-router.post('/', controler.setNewProduto)
+routerProdutos.post('/', controler.setNewProduto)
 
-router.patch('/:id', controler.setAlteracao)
+routerProdutos.patch('/:id', controler.setAlteracao)
 
-module.exports = router
+routerProdutos.delete('/:id', controler.deletProduto)
+
+module.exports = routerProdutos

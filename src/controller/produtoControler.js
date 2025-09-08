@@ -38,10 +38,17 @@ const setAlteracao = (req, res) => {
     res.status(201).json(alteracao)
 }
 
+const deletProduto = (req, res) => {
+    let id = parseInt(req.params.id)
+    const deletar = modelProdutos.deletarProduto(id)
+    res.status(200).json(deletar)
+}
+
 module.exports = {
     getAllProdutos,
     getProdutoId,
     getProdutoNome,
     setNewProduto,
-    setAlteracao
+    setAlteracao,
+    deletProduto
 }
