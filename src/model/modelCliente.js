@@ -33,35 +33,51 @@ function getClienteName(name) {
 
 function setCliente(newClienteDados) {
     let newId
-    if(clientes.length > 0) {
+    if (clientes.length > 0) {
         newId = clientes[clientes.length - 1].id + 1
 
-    }else {
+    } else {
         newId = 1
     }
-    let newCliente = {id: newId, ...newClienteDados}
+    let newCliente = { id: newId, ...newClienteDados }
     clientes.push(newCliente)
     return newCliente
 }
 
 function updateCliente(id, newDados) {
+    let boolean
+
     for (let i = 0; i < clientes.length; i++) {
         if (clientes[i].id === id) {
             clientes[i].name = newDados.name
             clientes[i].telefone = newDados.telefone
             clientes[i].email = newDados.email
             clientes[i].salario = newDados.salario
+            boolean = true
         }
-        
+
+    }
+    if (boolean) {
+        return true
+    } else {
+        return false
     }
 }
 
 function deletarCliente(id) {
+    let boolean
+
     for (let i = 0; i < clientes.length; i++) {
         if (clientes[i].id === id) {
             clientes.splice(i, 1)
+            boolean = true
         }
-        
+    }
+
+    if (boolean) {
+        return true
+    } else {
+        return false
     }
 }
 
